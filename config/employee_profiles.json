@@ -1,0 +1,20 @@
+{
+  "E101": {
+    "name": "Nguyễn An",
+    "department": "Finance",
+    "level": "staff",
+    "manager": "FIN-MGR"
+  },
+  "E102": {
+    "name": "Trần Bình",
+    "department": "Marketing",
+    "level": "staff",
+    "manager": "MKT-MGR"
+  },
+  "E103": {
+    "name": "Lê Chi",
+    "department": "Sales",
+    "level": "manager",
+    "manager": "SALES-DIR"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "meal": {
+    "display_name": "Ăn uống/tiếp khách",
+    "per_request_limit": 1000000,
+    "receipt_required": true,
+    "allowed_departments": ["Finance", "Marketing", "Sales"]
+  },
+  "office_supplies": {
+    "display_name": "Văn phòng phẩm",
+    "per_request_limit": 2000000,
+    "receipt_required": true,
+    "allowed_departments": ["Finance", "Marketing", "Sales"]
+  },
+  "travel": {
+    "display_name": "Công tác",
+    "per_request_limit": 10000000,
+    "receipt_required": true,
+    "allowed_departments": ["Finance", "Marketing", "Sales"]
+  },
+  "client_event": {
+    "display_name": "Sự kiện khách hàng",
+    "per_request_limit": 20000000,
+    "receipt_required": true,
+    "allowed_departments": ["Marketing", "Sales"]
+  },
+  "approval_routes": [
+    {
+      "max_amount": 2000000,
+      "approvers": ["Manager"]
+    },
+    {
+      "max_amount": 10000000,
+      "approvers": ["Manager", "Finance"]
+    },
+    {
+      "max_amount": null,
+      "approvers": ["Manager", "Finance", "CFO"]
+    }
+  ]
+}
