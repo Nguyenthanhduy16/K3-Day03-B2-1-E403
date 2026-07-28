@@ -1,0 +1,16 @@
+flowchart TD
+    A["Nhận câu hỏi/yêu cầu chi phí"] --> B{"Dữ liệu đầu vào hợp lệ?"}
+    B -- "Không: tiền <= 0, injection" --> R["REJECT an toàn"]
+    B -- "Có" --> C{"Chỉ là kiến thức chung?"}
+    C -- "Có" --> D["Chatbot path: 1 LLM call, 0 tool"]
+    C -- "Không" --> E["ReAct Agent path"]
+    E --> F["Tra hồ sơ nhân viên nếu có mã"]
+    F --> G["Tra chính sách chi phí"]
+    G --> H{"Chính sách phù hợp?"}
+    H -- "Không/thiếu dữ liệu" --> I["REJECT hoặc NEED_MORE_INFO"]
+    H -- "Có" --> J["Kiểm tra ngân sách phòng ban"]
+    J --> K{"Ngân sách đủ?"}
+    K -- "Không" --> L["REJECT hoặc ESCALATE"]
+    K -- "Có" --> M["Xác định tuyến phê duyệt"]
+    M --> N["ESCALATE tới Manager / Finance / CFO"]
+    E -. "Parse error, unknown tool, repeated action" .-> O["Guardrail + safe fallback"]
